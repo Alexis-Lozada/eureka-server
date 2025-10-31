@@ -12,5 +12,5 @@ public class EntityA {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name;
+    private String nombreA;
 }

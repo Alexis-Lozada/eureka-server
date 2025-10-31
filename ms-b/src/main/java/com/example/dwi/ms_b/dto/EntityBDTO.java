@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class EntityBDTO {
     private int id;
-    private String nombreA;
+    private String nameB;
 }

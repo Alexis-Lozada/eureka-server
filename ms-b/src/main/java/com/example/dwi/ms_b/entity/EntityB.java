@@ -1,9 +1,8 @@
 package com.example.dwi.ms_b.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import java.util.List;
+
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
@@ -12,5 +11,10 @@ public class EntityB {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name;
+    private String nameB;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "entitya_id")
+    private List<EntityBEntityA> entityBEntityAs;
+
 }

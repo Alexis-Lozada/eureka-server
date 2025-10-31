@@ -1,53 +1,69 @@
 package com.example.dwi.ms_b.service;
 
+import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
+import java.util.Map;
+import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.example.dwi.ms_b.dto.EntityBDTO;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.example.dwi.ms_b.dto.EntityBDtoList;
+import com.example.dwi.ms_b.dto.EntityADTO;
 import com.example.dwi.ms_b.entity.EntityB;
+import com.example.dwi.ms_b.entity.EntityBEntityA;
 import com.example.dwi.ms_b.repository.EntityBRepository;
+import com.example.dwi.ms_b.client.ClientFeignMSA;
 
 @Service
 public class EntityBService {
 
-    private final EntityBRepository repository;
+    @Autowired
+    private EntityBRepository repository;
 
-    public EntityBService(EntityBRepository repository) {
-        this.repository = repository;
-    }
+    @Autowired
+    private ClientFeignMSA clientFeignMSA;
 
-    // Obtener todos
-    public List<EntityB> findAll() {
-        return repository.findAll();
-    }
+    // Read all
+    @Transactional(readOnly = true)
+    public List<EntityBDtoList> findAll() {
+        List<EntityB> datos = repository.findAll();
 
-    // Obtener por ID
-    public Optional<EntityB> findById(int id) {
-        return repository.findById(id);
-    }
+        List<Integer> ids = datos.stream()
+                .flatMap(relacion -> relacion.getEntityBEntityAs().stream())
+                .map(EntityBEntityA::getIdEntityBId)
+                .distinct()
+                .collect(Collectors.toList());
 
-    // Crear
-    public EntityB create(EntityBDTO dto) {
-        EntityB entity = new EntityB();
-        entity.setName(dto.getNombreA());
-        return repository.save(entity);
-    }
-
-    // Actualizar
-    public Optional<EntityB> update(int id, EntityBDTO dto) {
-        return repository.findById(id).map(entity -> {
-            entity.setName(dto.getNombreA());
-            return repository.save(entity);
-        });
-    }
-
-    // Eliminar
-    public boolean delete(int id) {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-            return true;
+        Map<Integer, String> entidadAIdNombreAMap = new HashMap<>();
+        List<EntityADTO> entityADtos = clientFeignMSA.obtenerDTOsDelMSA(ids);
+        if (entityADtos != null) {
+            for (EntityADTO dto : entityADtos) {
+                if (dto != null) {
+                    entidadAIdNombreAMap.put(dto.getId(), dto.getNombreA());
+                }
+            }
         }
-        return false;
+
+        List<EntityBDtoList> datosList = datos
+                .stream()
+                .map(e -> {
+                    EntityBDtoList dto = new EntityBDtoList();
+                    dto.setId(e.getId());
+                    dto.setNombreB(e.getNameB());
+
+                    if (e.getEntityBEntityAs() != null && !e.getEntityBEntityAs().isEmpty()) {
+                        EntityBEntityA relacion = e.getEntityBEntityAs().get(0);
+                        if (relacion != null && relacion.getIdEntityBId() != 0) {
+                            String nombreA = entidadAIdNombreAMap.get(relacion.getIdEntityBId());
+                            dto.setNombreA(nombreA != null ? nombreA : "Sin dato de MSA");
+                        }
+                    }
+                    return dto;
+                })
+                .collect(Collectors.toList());
+
+        return datosList;
     }
 }

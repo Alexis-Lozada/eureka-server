@@ -14,7 +14,7 @@ spring:
             - id: ms-a
               uri: lb://ms-a
               predicates:
-                - Path=/api/entityA/**
+                - Path=/api/entity-a/**
               filters:
                 - StripPrefix=0
 

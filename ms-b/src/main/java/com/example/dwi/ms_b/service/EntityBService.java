@@ -3,6 +3,7 @@ package com.example.dwi.ms_b.service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.dwi.ms_b.dto.EntityBDtoList;
 import com.example.dwi.ms_b.dto.EntityADTO;
+import com.example.dwi.ms_b.dto.EntityBDTO;
 import com.example.dwi.ms_b.entity.EntityB;
 import com.example.dwi.ms_b.entity.EntityBEntityA;
 import com.example.dwi.ms_b.repository.EntityBRepository;
@@ -65,5 +67,40 @@ public class EntityBService {
                 .collect(Collectors.toList());
 
         return datosList;
+    }
+
+    public List<EntityB> findAllEntityB() {
+        return repository.findAll();
+    }
+
+    public EntityB findById(int id) {
+        Optional<EntityB> optional = repository.findById(id);
+        return optional.orElse(null);
+    }
+
+    public EntityB create(EntityBDTO entityBDTO) {
+        EntityB entityB = toEntity(entityBDTO);
+        return repository.save(entityB);
+    }
+
+    public EntityB update(EntityBDTO entityBDTO) {
+        EntityB entityB = toEntity(entityBDTO);
+        return repository.save(entityB);
+    }
+
+    public boolean delete(int id) {
+        if (repository.existsById(id)) {
+            repository.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private EntityB toEntity(EntityBDTO entityBDTO) {
+        EntityB entityB = new EntityB();
+        entityB.setId(entityBDTO.getId());
+        entityB.setNameB(entityBDTO.getNameB());
+        return entityB;
     }
 }

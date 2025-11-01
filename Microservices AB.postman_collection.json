@@ -1,0 +1,527 @@
+{
+	"info": {
+		"_postman_id": "b13c41a9-5983-44bc-848c-3e325567db87",
+		"name": "Microservices AB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32178846",
+		"_collection_link": "https://roster-8719.postman.co/workspace/Team-Workspace~d873214a-0e47-42c4-803d-65178277b988/collection/32178846-b13c41a9-5983-44bc-848c-3e325567db87?action=share&source=collection_link&creator=32178846"
+	},
+	"item": [
+		{
+			"name": "MSA",
+			"item": [
+				{
+					"name": "CRUD",
+					"item": [
+						{
+							"name": "/entity-a/id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJraWQiOiI4ZjkzZDMwMC0zMjkwLTRjZWUtOWQ4Zi02MDQxYjRiN2IxNWQiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjbGllbnQtYXBwIiwiYXVkIjoiY2xpZW50LWFwcCIsIm5iZiI6MTc2MTkyOTk1Mywic2NvcGUiOlsicmVhZCJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwMDAiLCJleHAiOjE3NjE5MzAyNTMsImlhdCI6MTc2MTkyOTk1MywianRpIjoiMThhZWUzZjgtMjZmYS00MmE1LWI0MjctYjg3YTJjZTI5YWQyIn0.Lz4oL7ClcV6IrHtc0i02HhqIQOKhGcLxeStOWWy1Vm2fXSU9aK7XpDFfOOjsRd9Xrg_FHFDe0GxX79EZf9NibU-TRF13TaDRDEjZOvTit0L9oFYk-UL4Xfq8rRaleiXOZRnnqIsLckXuJ5sHkbzqJ2QkQ29pldax859n3CD41kmckXPzLVXJktpv8pzC5jUx05uqaESvrREAbofJFsJYyl-oHcMWAZU_QT_DXdCDvtVs8xu4DLA8RltO9cCWtQiLxsgBu-xkOi7r6FFkNHulv4yB7ZPkaPo3cvl9QHqV-ckmXXhm1IgEe8bvjJTTCmty-V7Bvu6UgcNA2CaTM8DawQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api-gateway}}/api/entity-a/1",
+									"host": [
+										"{{api-gateway}}"
+									],
+									"path": [
+										"api",
+										"entity-a",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/entity-a",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJraWQiOiI4ZjkzZDMwMC0zMjkwLTRjZWUtOWQ4Zi02MDQxYjRiN2IxNWQiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjbGllbnQtYXBwIiwiYXVkIjoiY2xpZW50LWFwcCIsIm5iZiI6MTc2MTkyOTUwNiwic2NvcGUiOlsicmVhZCJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwMDAiLCJleHAiOjE3NjE5Mjk4MDYsImlhdCI6MTc2MTkyOTUwNiwianRpIjoiMzA4YjU3MzQtNjU4Zi00YjliLWI3YzUtNDhmOTJmZjFmMTEyIn0.RCMiV_F7fcIaPgVejAAjyCdhf7u5RJlAMlrhu9-T2LWSRSYfs5yKChk3TFqvyF5335oe_zULmukk3nzdTcilwLODHySXUIgT_gmME9R0B_VItnTy-hIrBXSH9KtPTPvIOCEntlLoLRCUwUysruBOlLNroW5ejylZblS8WzRpjH4ZHCaXuhqaFTis3VNRKTjMtcGSsCWlDPW1KgwSdAbryA0p84sLCAZzhBPI2nE9i3dTENxo19nSeD5TekBZKhskU9iOR-2iC0MS_hui-P_DYvd04_gKVSeOCOt1VTPKnXmMuTyI9dRaZgcMvycUeAgtxMJIhVkNbvFYxE3tW3qFLA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api-gateway}}/api/entity-a",
+									"host": [
+										"{{api-gateway}}"
+									],
+									"path": [
+										"api",
+										"entity-a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/entity-a",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJraWQiOiI2YjY0ODBlMy0zNWZjLTQ1YTctODgzMS1kNGM3NjYwY2JhNDUiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjbGllbnQtYXBwIiwiYXVkIjoiY2xpZW50LWFwcCIsIm5iZiI6MTc2MTk0MTg3Niwic2NvcGUiOlsicmVhZCJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwMDAiLCJleHAiOjE3NjE5NDIxNzYsImlhdCI6MTc2MTk0MTg3NiwianRpIjoiOTZhZDNjNWEtNTE0NC00ODBiLWFhN2ItZTY2YmIzYzFiNmQ2In0.YCadJAkLdooLAQlj9b-RiRzAD7GJzDMRHpxA9ycwbqlxWR0msv2gMd-umudiHnvA99ZNgcD7iq1T-s9K56K_lrwuqBte7gnGn7MKSqPLcPOk72xoxITA0mv6eot-iz6RCsQqUCfTFh_0upijrbTMKp-40-hcHDZ49KYZVhPLZC38-CYZEN7DzCHPIF7jRUr2U6SkcIlrs9clKB-iPO_qYqm4fbgSbzlG72L_QyGx8zSYzxO4EZwn8SKr1XsybMsK509yFhxOJzNot-41Kla26mIUWfay0XcCKuDGuJ4OLiSIYl08BA-dyxcPW12EK_Y8OGphrCWhmPsmJdy-rPl3_Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombreA\": \"Nueva entidad A\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-gateway}}/api/entity-a",
+									"host": [
+										"{{api-gateway}}"
+									],
+									"path": [
+										"api",
+										"entity-a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/entity-a/id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJraWQiOiI4ZjkzZDMwMC0zMjkwLTRjZWUtOWQ4Zi02MDQxYjRiN2IxNWQiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjbGllbnQtYXBwIiwiYXVkIjoiY2xpZW50LWFwcCIsIm5iZiI6MTc2MTkyNzAzMCwic2NvcGUiOlsicmVhZCJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwMDAiLCJleHAiOjE3NjE5MjczMzAsImlhdCI6MTc2MTkyNzAzMCwianRpIjoiNDYzN2FhOTktNTRhNy00ZWI3LWJkY2QtNTUxZGVlYjIwY2ZjIn0.AVIQq2uZxT4uAPlnhefqjZnafa1srLItZePj2WgotXS_08UaMm8VVHRA8WXSseORvuL-oFn4VVoddkBjRO0aFEIC_PXH4AIPwN1nMYKrH34QGntwmCOwiwOmVKPYimKs6qEBeb6tb5-z2achOB02OkxbyrT0Fdf2lQu78DY9gc8gQGF8HLBaKPqgPFr6ZTbXH1-H-svKqk4rbgSHfGzMpiG0kNijlow24iNZcv6YtDfow6c4698MHoprBBLiqY8FmRzgWw_crHB5ZA7TGwktRhcVOFN6nZCKxvNOOtVuD_-6EW5Kgo-Y_1bK_3my3bQzx_7q4xjkA7M600fxHZ1bkA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombreA\": \"Entidad A actualizada\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-gateway}}/api/entity-a/1",
+									"host": [
+										"{{api-gateway}}"
+									],
+									"path": [
+										"api",
+										"entity-a",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/entity-a/id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJraWQiOiI4ZjkzZDMwMC0zMjkwLTRjZWUtOWQ4Zi02MDQxYjRiN2IxNWQiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjbGllbnQtYXBwIiwiYXVkIjoiY2xpZW50LWFwcCIsIm5iZiI6MTc2MTkyNzAzMCwic2NvcGUiOlsicmVhZCJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwMDAiLCJleHAiOjE3NjE5MjczMzAsImlhdCI6MTc2MTkyNzAzMCwianRpIjoiNDYzN2FhOTktNTRhNy00ZWI3LWJkY2QtNTUxZGVlYjIwY2ZjIn0.AVIQq2uZxT4uAPlnhefqjZnafa1srLItZePj2WgotXS_08UaMm8VVHRA8WXSseORvuL-oFn4VVoddkBjRO0aFEIC_PXH4AIPwN1nMYKrH34QGntwmCOwiwOmVKPYimKs6qEBeb6tb5-z2achOB02OkxbyrT0Fdf2lQu78DY9gc8gQGF8HLBaKPqgPFr6ZTbXH1-H-svKqk4rbgSHfGzMpiG0kNijlow24iNZcv6YtDfow6c4698MHoprBBLiqY8FmRzgWw_crHB5ZA7TGwktRhcVOFN6nZCKxvNOOtVuD_-6EW5Kgo-Y_1bK_3my3bQzx_7q4xjkA7M600fxHZ1bkA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-gateway}}/api/entity-a/1",
+									"host": [
+										"{{api-gateway}}"
+									],
+									"path": [
+										"api",
+										"entity-a",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/entity-a/by-ids",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiI4ZjkzZDMwMC0zMjkwLTRjZWUtOWQ4Zi02MDQxYjRiN2IxNWQiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjbGllbnQtYXBwIiwiYXVkIjoiY2xpZW50LWFwcCIsIm5iZiI6MTc2MTkyNzAzMCwic2NvcGUiOlsicmVhZCJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwMDAiLCJleHAiOjE3NjE5MjczMzAsImlhdCI6MTc2MTkyNzAzMCwianRpIjoiNDYzN2FhOTktNTRhNy00ZWI3LWJkY2QtNTUxZGVlYjIwY2ZjIn0.AVIQq2uZxT4uAPlnhefqjZnafa1srLItZePj2WgotXS_08UaMm8VVHRA8WXSseORvuL-oFn4VVoddkBjRO0aFEIC_PXH4AIPwN1nMYKrH34QGntwmCOwiwOmVKPYimKs6qEBeb6tb5-z2achOB02OkxbyrT0Fdf2lQu78DY9gc8gQGF8HLBaKPqgPFr6ZTbXH1-H-svKqk4rbgSHfGzMpiG0kNijlow24iNZcv6YtDfow6c4698MHoprBBLiqY8FmRzgWw_crHB5ZA7TGwktRhcVOFN6nZCKxvNOOtVuD_-6EW5Kgo-Y_1bK_3my3bQzx_7q4xjkA7M600fxHZ1bkA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[1, 2, 3]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/entity-a/by-ids",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"entity-a",
+								"by-ids"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MSB",
+			"item": [
+				{
+					"name": "CRUD",
+					"item": [
+						{
+							"name": "/entityB/id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJraWQiOiI4ZjkzZDMwMC0zMjkwLTRjZWUtOWQ4Zi02MDQxYjRiN2IxNWQiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjbGllbnQtYXBwIiwiYXVkIjoiY2xpZW50LWFwcCIsIm5iZiI6MTc2MTkyOTUwNiwic2NvcGUiOlsicmVhZCJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwMDAiLCJleHAiOjE3NjE5Mjk4MDYsImlhdCI6MTc2MTkyOTUwNiwianRpIjoiMzA4YjU3MzQtNjU4Zi00YjliLWI3YzUtNDhmOTJmZjFmMTEyIn0.RCMiV_F7fcIaPgVejAAjyCdhf7u5RJlAMlrhu9-T2LWSRSYfs5yKChk3TFqvyF5335oe_zULmukk3nzdTcilwLODHySXUIgT_gmME9R0B_VItnTy-hIrBXSH9KtPTPvIOCEntlLoLRCUwUysruBOlLNroW5ejylZblS8WzRpjH4ZHCaXuhqaFTis3VNRKTjMtcGSsCWlDPW1KgwSdAbryA0p84sLCAZzhBPI2nE9i3dTENxo19nSeD5TekBZKhskU9iOR-2iC0MS_hui-P_DYvd04_gKVSeOCOt1VTPKnXmMuTyI9dRaZgcMvycUeAgtxMJIhVkNbvFYxE3tW3qFLA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api-gateway}}/api/entityB/1",
+									"host": [
+										"{{api-gateway}}"
+									],
+									"path": [
+										"api",
+										"entityB",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/entityB",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJraWQiOiI4ZjkzZDMwMC0zMjkwLTRjZWUtOWQ4Zi02MDQxYjRiN2IxNWQiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjbGllbnQtYXBwIiwiYXVkIjoiY2xpZW50LWFwcCIsIm5iZiI6MTc2MTkyOTUwNiwic2NvcGUiOlsicmVhZCJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwMDAiLCJleHAiOjE3NjE5Mjk4MDYsImlhdCI6MTc2MTkyOTUwNiwianRpIjoiMzA4YjU3MzQtNjU4Zi00YjliLWI3YzUtNDhmOTJmZjFmMTEyIn0.RCMiV_F7fcIaPgVejAAjyCdhf7u5RJlAMlrhu9-T2LWSRSYfs5yKChk3TFqvyF5335oe_zULmukk3nzdTcilwLODHySXUIgT_gmME9R0B_VItnTy-hIrBXSH9KtPTPvIOCEntlLoLRCUwUysruBOlLNroW5ejylZblS8WzRpjH4ZHCaXuhqaFTis3VNRKTjMtcGSsCWlDPW1KgwSdAbryA0p84sLCAZzhBPI2nE9i3dTENxo19nSeD5TekBZKhskU9iOR-2iC0MS_hui-P_DYvd04_gKVSeOCOt1VTPKnXmMuTyI9dRaZgcMvycUeAgtxMJIhVkNbvFYxE3tW3qFLA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api-gateway}}/api/entityB",
+									"host": [
+										"{{api-gateway}}"
+									],
+									"path": [
+										"api",
+										"entityB"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/entityB",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJraWQiOiI2YjY0ODBlMy0zNWZjLTQ1YTctODgzMS1kNGM3NjYwY2JhNDUiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjbGllbnQtYXBwIiwiYXVkIjoiY2xpZW50LWFwcCIsIm5iZiI6MTc2MTk0MTg3Niwic2NvcGUiOlsicmVhZCJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwMDAiLCJleHAiOjE3NjE5NDIxNzYsImlhdCI6MTc2MTk0MTg3NiwianRpIjoiOTZhZDNjNWEtNTE0NC00ODBiLWFhN2ItZTY2YmIzYzFiNmQ2In0.YCadJAkLdooLAQlj9b-RiRzAD7GJzDMRHpxA9ycwbqlxWR0msv2gMd-umudiHnvA99ZNgcD7iq1T-s9K56K_lrwuqBte7gnGn7MKSqPLcPOk72xoxITA0mv6eot-iz6RCsQqUCfTFh_0upijrbTMKp-40-hcHDZ49KYZVhPLZC38-CYZEN7DzCHPIF7jRUr2U6SkcIlrs9clKB-iPO_qYqm4fbgSbzlG72L_QyGx8zSYzxO4EZwn8SKr1XsybMsK509yFhxOJzNot-41Kla26mIUWfay0XcCKuDGuJ4OLiSIYl08BA-dyxcPW12EK_Y8OGphrCWhmPsmJdy-rPl3_Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nameB\": \"Nuevo Producto\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-gateway}}/api/entityB",
+									"host": [
+										"{{api-gateway}}"
+									],
+									"path": [
+										"api",
+										"entityB"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/entityB/id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJraWQiOiI4ZjkzZDMwMC0zMjkwLTRjZWUtOWQ4Zi02MDQxYjRiN2IxNWQiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjbGllbnQtYXBwIiwiYXVkIjoiY2xpZW50LWFwcCIsIm5iZiI6MTc2MTkyNTk4OCwic2NvcGUiOlsicmVhZCJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwMDAiLCJleHAiOjE3NjE5MjYyODgsImlhdCI6MTc2MTkyNTk4OCwianRpIjoiZWZkZDE2MDItMTE5NC00ODQwLTg3Y2MtYzlhMWUyNGFiYzAxIn0.iL4fb4jymHQyiVyt37eSG4fVTNEjx_BZkwSrMkflOWoa1xmGvF7d8pceS6FW1955nkBLt1oj4MfpaocsCF0gTMi8roTY1BPjVRizqpPSeXdeAal39CEI_Iw9fRsFigtWUky7cw4NesLIrV50LYCx-nwk_0Z-tJsMs9BKsbw0sjePl7cSichWOo8vn2o-Jyuh2DpFQtn1huZWpK2lzGLWobAqT09PYlb8mulEC6XeEf5qRzrVEigxYP5OfN4lXYD1L85iCWflsDDRzea9JNiDJ0U5VQZztvxAjvskVvwnznyuTrhibcGOM6z-v2vAb74L14_rSVPFF2gGH6P_RXzrmg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nameB\": \"Producto Actualizado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-gateway}}/api/entityB/1",
+									"host": [
+										"{{api-gateway}}"
+									],
+									"path": [
+										"api",
+										"entityB",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/entityB/id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJraWQiOiI4ZjkzZDMwMC0zMjkwLTRjZWUtOWQ4Zi02MDQxYjRiN2IxNWQiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjbGllbnQtYXBwIiwiYXVkIjoiY2xpZW50LWFwcCIsIm5iZiI6MTc2MTkyNTk4OCwic2NvcGUiOlsicmVhZCJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwMDAiLCJleHAiOjE3NjE5MjYyODgsImlhdCI6MTc2MTkyNTk4OCwianRpIjoiZWZkZDE2MDItMTE5NC00ODQwLTg3Y2MtYzlhMWUyNGFiYzAxIn0.iL4fb4jymHQyiVyt37eSG4fVTNEjx_BZkwSrMkflOWoa1xmGvF7d8pceS6FW1955nkBLt1oj4MfpaocsCF0gTMi8roTY1BPjVRizqpPSeXdeAal39CEI_Iw9fRsFigtWUky7cw4NesLIrV50LYCx-nwk_0Z-tJsMs9BKsbw0sjePl7cSichWOo8vn2o-Jyuh2DpFQtn1huZWpK2lzGLWobAqT09PYlb8mulEC6XeEf5qRzrVEigxYP5OfN4lXYD1L85iCWflsDDRzea9JNiDJ0U5VQZztvxAjvskVvwnznyuTrhibcGOM6z-v2vAb74L14_rSVPFF2gGH6P_RXzrmg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-gateway}}/api/entityB/1",
+									"host": [
+										"{{api-gateway}}"
+									],
+									"path": [
+										"api",
+										"entityB",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/entityB/all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiI4ZjkzZDMwMC0zMjkwLTRjZWUtOWQ4Zi02MDQxYjRiN2IxNWQiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjbGllbnQtYXBwIiwiYXVkIjoiY2xpZW50LWFwcCIsIm5iZiI6MTc2MTkyOTk1Mywic2NvcGUiOlsicmVhZCJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwMDAiLCJleHAiOjE3NjE5MzAyNTMsImlhdCI6MTc2MTkyOTk1MywianRpIjoiMThhZWUzZjgtMjZmYS00MmE1LWI0MjctYjg3YTJjZTI5YWQyIn0.Lz4oL7ClcV6IrHtc0i02HhqIQOKhGcLxeStOWWy1Vm2fXSU9aK7XpDFfOOjsRd9Xrg_FHFDe0GxX79EZf9NibU-TRF13TaDRDEjZOvTit0L9oFYk-UL4Xfq8rRaleiXOZRnnqIsLckXuJ5sHkbzqJ2QkQ29pldax859n3CD41kmckXPzLVXJktpv8pzC5jUx05uqaESvrREAbofJFsJYyl-oHcMWAZU_QT_DXdCDvtVs8xu4DLA8RltO9cCWtQiLxsgBu-xkOi7r6FFkNHulv4yB7ZPkaPo3cvl9QHqV-ckmXXhm1IgEe8bvjJTTCmty-V7Bvu6UgcNA2CaTM8DawQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-gateway}}/api/entityB/all",
+							"host": [
+								"{{api-gateway}}"
+							],
+							"path": [
+								"api",
+								"entityB",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AuthServer",
+			"item": [
+				{
+					"name": "/oauth2/token",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "secret123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "client-app",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "read",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{auth-server}}/oauth2/token",
+							"host": [
+								"{{auth-server}}"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api-gateway",
+			"value": "http://localhost:8080"
+		},
+		{
+			"key": "auth-server",
+			"value": "http://localhost:9000"
+		}
+	]
+}

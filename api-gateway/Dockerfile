@@ -1,0 +1,19 @@
+FROM maven:3.9-eclipse-temurin-21 AS build
+
+WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+
+RUN mvn -q -DskipTests package
+
+FROM eclipse-temurin:21-jdk
+
+WORKDIR /app
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+
+COPY --from=build /app/target/api-gateway-0.0.1-SNAPSHOT.jar app.jar
+# o el nombre de jar que te genere (revisa la carpeta target)
+
+EXPOSE 8080
+
+ENTRYPOINT ["java","-jar","/app/app.jar"]

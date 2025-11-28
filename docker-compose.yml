@@ -1,0 +1,111 @@
+version: '3.8'
+
+services:
+  # Servidor Eureka - Service Discovery
+  servidor-eureka:
+    build:
+      context: ./servidor-eureka
+      dockerfile: Dockerfile
+    container_name: servidor-eureka
+    ports:
+      - "8761:8761"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - EUREKA_CLIENT_REGISTER_WITH_EUREKA=false
+      - EUREKA_CLIENT_FETCH_REGISTRY=false
+      - EUREKA_SERVER_ENABLE_SELF_PRESERVATION=false
+    networks:
+      - microservices-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://servidor-eureka:8761/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+
+  # Microservicio A
+  ms-a:
+    build:
+      context: ./ms-a
+      dockerfile: Dockerfile
+    container_name: ms-a
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://servidor-eureka:8761/eureka/
+      - EUREKA_INSTANCE_PREFER_IP_ADDRESS=true
+      - EUREKA_INSTANCE_HOSTNAME=ms-a
+    depends_on:
+      servidor-eureka:
+        condition: service_healthy
+    networks:
+      - microservices-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://ms-a:8081/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Microservicio B
+  ms-b:
+    build:
+      context: ./ms-b
+      dockerfile: Dockerfile
+    container_name: ms-b
+    ports:
+      - "8082:8082"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://servidor-eureka:8761/eureka/
+      - EUREKA_INSTANCE_PREFER_IP_ADDRESS=true
+      - EUREKA_INSTANCE_HOSTNAME=ms-b
+    depends_on:
+      servidor-eureka:
+        condition: service_healthy
+    networks:
+      - microservices-network
+    healthcheck:
+      # Aquí uso el nombre ms-b dentro de la red
+      test: ["CMD", "curl", "-f", "http://ms-b:8082/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # API Gateway
+  gateway:
+    build:
+      context: ./api-gateway   # <-- si tu carpeta se llama api-gateway, pon ./api-gateway
+      dockerfile: Dockerfile
+    container_name: gateway
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://servidor-eureka:8761/eureka/
+      - EUREKA_INSTANCE_PREFER_IP_ADDRESS=true
+      - EUREKA_INSTANCE_HOSTNAME=gateway
+    depends_on:
+      servidor-eureka:
+        condition: service_healthy
+      ms-a:
+        condition: service_healthy
+      ms-b:
+        condition: service_healthy
+    networks:
+      - microservices-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://gateway:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  microservices-network:
+    driver: bridge
+
+volumes:
+  eureka-data:
